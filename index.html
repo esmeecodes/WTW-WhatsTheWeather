@@ -1,0 +1,153 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>🌏 How's the weather?</title>
+    <script
+      src="https://kit.fontawesome.com/1bf3caee67.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weatherapp"></div>
+      <h1>How's the weather?</h1>
+
+      <div class="row1">
+        <div class="col-sm-5">
+          <form id="searchform-city">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for your favorite place"
+                id="input-city"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div>
+            <button id="button-curloc">Current location</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <img src="images/map-city.png" class="img-fluid" alt="city" />
+        </div>
+        <div class="col-sm">
+          <h2 class="card-title">
+            The weather for <br /><span id="city">Amsterdam</span>
+          </h2>
+          <p class="card-text">
+            Wet and grey, less rain during the afternoon.<br /><br />
+            <span class="today">Sunday - 10.03</span>
+            <br />
+            <span id="accentbig"
+              ><span id="degrees">17</span>&deg<span class="celcius"> C </span
+              >🌧</span
+            >
+            <br />
+            <a
+              class="leesmeer"
+              href="https://www.weeronline.nl/Europa/Nederland/Amsterdam/4058223/weersverwachting-48uur"
+              target="_self"
+              >Today's weather</a
+            >
+            <i class="fas fa-arrow-right symbol1"></i>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="card-text-smallcards">
+            <span class="emojibig">🌧</span>
+            <br />
+            Today
+            <br />
+            03-10-21
+            <br />
+            17&deg<span class="celcius5d">C</span>
+          </p>
+        </div>
+        <div class="col-xs-2">
+          <p class="card-text-smallcards">
+            <span class="emojibig">🌧</span>
+            <br />
+            Today
+            <br />
+            03-10-21
+            <br />
+            17&deg<span class="celcius5d">C</span>
+          </p>
+        </div>
+        <div class="col-xs-2">
+          <p class="card-text-smallcards">
+            <span class="emojibig">🌧</span>
+            <br />
+            Today
+            <br />
+            03-10-21
+            <br />
+            17&deg<span class="celcius5d">C</span>
+          </p>
+        </div>
+        <div class="col-xs-2">
+          <p class="card-text-smallcards">
+            <span class="emojibig">🌧</span>
+            <br />
+            Today
+            <br />
+            03-10-21
+            <br />
+            17&deg<span class="celcius5d">C</span>
+          </p>
+        </div>
+        <div class="col-xs-2">
+          <p class="card-text-smallcards">
+            <span class="emojibig">🌧</span>
+            <br />
+            Today
+            <br />
+            03-10-21
+            <br />
+            17&deg<span class="celcius5d">C</span>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="prefooter">
+            <a
+              class="leesmeer"
+              href="https://www.weeronline.nl/Europa/Nederland/Amsterdam/4058223/weersverwachting-14dagen"
+              target="_self"
+              >14-day forecast</a
+            >
+            <i class="fas fa-arrow-right symbol1"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

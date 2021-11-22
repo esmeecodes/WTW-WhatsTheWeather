@@ -1,0 +1,144 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  line-height: 1.25;
+  font-weight: bold;
+  padding: 10px 0px 10px 0px;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: #31353e;
+}
+
+.weatherapp {
+  width: 400px;
+}
+
+.row {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.row2 {
+  margin: 10px 0px 10px 0px;
+}
+
+.col-xs-2 {
+  width: 20%;
+}
+
+.col-sm {
+  margin: 0px;
+}
+
+.col-sm-5 {
+  position: relative;
+  left: -18px;
+}
+
+.col-xs-12 {
+  width: 100%;
+  text-align: right;
+}
+
+.img-fluid {
+  max-height: 280px;
+}
+
+.form-control {
+  border-top: 1px solid #31353e;
+  border-bottom: 1px solid #31353e;
+  border-left: 1px solid #31353e;
+}
+
+.form-control::placeholder {
+  color: #949aa7;
+}
+
+button#button-addon2 {
+  color: #31353e;
+  background-color: white;
+  border-top: 1px solid #31353e;
+  border-right: 1px solid #31353e;
+  border-bottom: 1px solid #31353e;
+  border-left: none;
+}
+
+h2.card-title {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+p.card-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p.card-text-smallcards {
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.25;
+}
+
+#city {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.leesmeer {
+  color: #5b6273;
+  text-decoration: underline;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.symbol1 {
+  color: #5b6273;
+}
+
+.today {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+#accentbig {
+  font-size: 62px;
+  font-weight: bold;
+}
+
+.emojibig {
+  font-size: 62px;
+  font-weight: bold;
+}
+
+.celcius {
+  vertical-align: super;
+  font-size: 50%;
+}
+
+#convertunittoF {
+  color: black;
+  font-style: none;
+}
+
+#convertunittoF:hover {
+  text-decoration: none;
+  color: coral;
+}
+
+#convertunittoC {
+  color: black;
+  font-style: none;
+}
+
+#convertunittoC:hover {
+  text-decoration: none;
+  color: coral;
+}
