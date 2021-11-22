@@ -92,6 +92,17 @@ p.card-text-smallcards {
   font-weight: bold;
 }
 
+button#button-curloc {
+  color: white;
+  background-color: cornflowerblue;
+  padding: 10px 16px;
+  border: 1px solid cornflowerblue;
+  border-radius: 30px;
+  transition: 200ms ease-in-out;
+  margin: 20px auto;
+  box-shadow: 1px 1px 4px rgb 113 113 113;
+}
+
 .leesmeer {
   color: #5b6273;
   text-decoration: underline;
