@@ -51,6 +51,10 @@ p {
   max-height: 280px;
 }
 
+#map {
+  height: 280px;
+}
+
 .form-control {
   border-top: 1px solid #31353e;
   border-bottom: 1px solid #31353e;
@@ -70,14 +74,14 @@ button#button-addon2 {
   border-left: none;
 }
 
-h2.card-title {
+p.card-title {
   font-size: 18px;
   font-weight: normal;
+  padding-bottom: 0px;
 }
 
 p.card-text {
   font-size: 18px;
-  font-weight: bold;
 }
 
 p.card-text-smallcards {
