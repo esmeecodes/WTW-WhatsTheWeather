@@ -163,3 +163,8 @@ button#button-curloc {
   text-decoration: none;
   color: coral;
 }
+
+.footer {
+  font-size: 10px;
+  text-align: center;
+}
