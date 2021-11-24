@@ -35,6 +35,7 @@ function showWeatherData(outputApi) {
 
   let displayNow = document.querySelector("#today");
   displayNow.innerHTML = timestamp(outputApi.data.dt * 1000);
+  celciusTemperature = Math.round(outputApi.data.main.temp);
 }
 
 function timestamp(timestamp) {
@@ -85,10 +86,11 @@ function timestamp(timestamp) {
   return `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
 }
 
-function converttempunittoF(event) {
-  event.preventDefault();
+function converttempunittoF(clickevent) {
+  clickevent.preventDefault();
+  let fahrenheitTemp = Math.round(celciusTemperature * 1.8 + 32);
   let weatherCity = document.querySelector("#degrees");
-  weatherCity.innerHTML = 62;
+  weatherCity.innerHTML = fahrenheitTemp;
   let displaytempF = document.querySelector("#convertunittoF");
   displaytempF.style.color = "coral";
   displaytempC.style.color = "black";
@@ -96,12 +98,16 @@ function converttempunittoF(event) {
 let displaytempF = document.querySelector("#convertunittoF");
 displaytempF.addEventListener("click", converttempunittoF);
 
-function converttempunittoC(event) {
-  event.preventDefault();
-  let weatherCityC = document.querySelector("#degrees");
-  weatherCityC.innerHTML = 17;
-  displaytempC.style.color = "coral";
+let celciusTemperature = null;
+
+function converttempunittoC(clickevent) {
+  clickevent.preventDefault();
+  let weatherCity = document.querySelector("#degrees");
+  weatherCity.innerHTML = celciusTemperature;
+
+  let displaytempC = document.querySelector("#convertunittoC");
   displaytempF.style.color = "black";
+  displaytempC.style.color = "coral";
 }
 let displaytempC = document.querySelector("#convertunittoC");
 displaytempC.addEventListener("click", converttempunittoC);
