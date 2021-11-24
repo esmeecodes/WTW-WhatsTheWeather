@@ -14,6 +14,8 @@ function searchCity(city) {
   axios.get(apiUrl).then(showWeatherData);
 }
 
+window.onload = searchCity("Amsterdam");
+
 function showWeatherData(outputApi) {
   console.log(outputApi);
   let temp = Math.round(outputApi.data.main.temp);
@@ -82,6 +84,27 @@ function timestamp(timestamp) {
 
   return `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
 }
+
+function converttempunittoF(event) {
+  event.preventDefault();
+  let weatherCity = document.querySelector("#degrees");
+  weatherCity.innerHTML = 62;
+  let displaytempF = document.querySelector("#convertunittoF");
+  displaytempF.style.color = "coral";
+  displaytempC.style.color = "black";
+}
+let displaytempF = document.querySelector("#convertunittoF");
+displaytempF.addEventListener("click", converttempunittoF);
+
+function converttempunittoC(event) {
+  event.preventDefault();
+  let weatherCityC = document.querySelector("#degrees");
+  weatherCityC.innerHTML = 17;
+  displaytempC.style.color = "coral";
+  displaytempF.style.color = "black";
+}
+let displaytempC = document.querySelector("#convertunittoC");
+displaytempC.addEventListener("click", converttempunittoC);
 
 // function showTemperatureMyPos(apiUrl2) {
 //   let temp = Math.round(apiUrl2.data.main.temp);
