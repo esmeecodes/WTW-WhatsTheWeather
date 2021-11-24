@@ -139,7 +139,7 @@ button#button-curloc {
   font-weight: bold;
 }
 
-.celcius {
+#celcius {
   vertical-align: super;
   font-size: 50%;
 }
