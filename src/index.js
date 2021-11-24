@@ -31,7 +31,13 @@ function showWeatherData(outputApi) {
   let loadIcon = outputApi.data.weather[0].icon;
   weatherIcon.src = `http://openweathermap.org/img/wn/${loadIcon}@2x.png`;
 
-  let todaysDate = new Date();
+  let displayNow = document.querySelector("#today");
+  displayNow.innerHTML = timestamp(outputApi.data.dt * 1000);
+}
+
+function timestamp(timestamp) {
+  let todaysDate = new Date(timestamp);
+  console.log(todaysDate);
   let weekDays = [
     "Sunday",
     "Monday",
@@ -74,8 +80,7 @@ function showWeatherData(outputApi) {
     minute = `0${minute}`;
   }
 
-  let displayNow = document.querySelector("#today");
-  displayNow.innerHTML = `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
+  return `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
 }
 
 // function showTemperatureMyPos(apiUrl2) {
@@ -101,3 +106,24 @@ function showWeatherData(outputApi) {
 
 // let PositionButton = document.querySelector("#button-curloc");
 // PositionButton.addEventListener("click", getPosition);
+
+// function converttempunittoF(event) {
+//   event.preventDefault();
+//   let weatherCity = document.querySelector("#degrees");
+//   weatherCity.innerHTML = 62;
+//   let displaytempF = document.querySelector("#convertunittoF");
+//   displaytempF.style.color = "coral";
+//   displaytempC.style.color = "black";
+// }
+// let displaytempF = document.querySelector("#convertunittoF");
+// displaytempF.addEventListener("click", converttempunittoF);
+
+// function converttempunittoC(event) {
+//   event.preventDefault();
+//   let weatherCityC = document.querySelector("#degrees");
+//   weatherCityC.innerHTML = 17;
+//   displaytempC.style.color = "coral";
+//   displaytempF.style.color = "black";
+// }
+// let displaytempC = document.querySelector("#convertunittoC");
+// displaytempC.addEventListener("click", converttempunittoC);
