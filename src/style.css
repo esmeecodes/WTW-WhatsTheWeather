@@ -80,8 +80,14 @@ p.card-title {
   padding-bottom: 0px;
 }
 
-p.card-text {
+ul {
   font-size: 18px;
+  list-style: none;
+  padding: 0;
+}
+
+li.weatherdescription:first-letter {
+  text-transform: capitalize;
 }
 
 p.card-text-smallcards {

@@ -44,9 +44,6 @@
               </div>
             </div>
           </form>
-          <div>
-            <button id="button-curloc">Current location</button>
-          </div>
         </div>
       </div>
       <div class="row">
@@ -57,27 +54,19 @@
           <h2 class="card-title">
             The weather for <br /><span id="city">Amsterdam</span>
           </h2>
-          <p class="card-text">
-            <span
-              id="weatherdescription"
-              Wet
-              and
-              grey,
-              less
-              rain
-              during
-              the
-              afternoon.</span><br
-            /><br />
-            <span class="today">Sunday - 10.03</span>
-            <br />
+          <p>
             <span id="accentbig"
-              ><span id="degrees">17</span>&deg<span class="convcelcius">
+              ><span id="degrees">..</span>&deg<span class="convertunittoC">
                 C
               </span>
-              | <span id="convfahrenheit"></span>F 🌧</span
+              | <span id="convertunittoF"></span>F</span> <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="icon" class="icon"></span
             >
-            <br />
+            <ul>
+            <li class="weatherdescription">test </li>
+            <li>Windspeed: <span id="windspeed"> </span>km/h</li>
+           <li>Humidity: <span id="humidity"> </span>%</li> 
+            </ul>
+            <span id="today"> </span><br />
             <a
               class="leesmeer"
               href="https://www.weeronline.nl/Europa/Nederland/Amsterdam/4058223/weersverwachting-48uur"

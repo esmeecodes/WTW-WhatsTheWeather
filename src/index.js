@@ -1,43 +1,82 @@
-let todaysDate = new Date();
-let weekDays = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+function searchSubmit(event) {
+  event.preventDefault();
+  console.log(document.querySelector("#input-city").value);
+  let cityInput = document.querySelector("#input-city");
+  searchCity(cityInput.value);
+}
 
-let todaysDay = weekDays[todaysDate.getDay()];
-let todaysDayDate = todaysDate.getDate();
-let month = todaysDate.getMonth();
-let year = todaysDate.getFullYear();
-let hour = todaysDate.getHours();
-let minute = todaysDate.getMinutes();
-
-let displayNow = document.querySelector("p .today");
-displayNow.innerHTML = `${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
+let searchForm = document.querySelector("#searchform-city");
+searchForm.addEventListener("submit", searchSubmit);
 
 function searchCity(city) {
   let apiKey = "f6766af7b26f55aa24d6be88466216f4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showWeatherData);
 }
-let weatherCity = document.querySelector("#city");
-weatherCity.innerHTML = cityInput;
 
-function searchSubmit(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#input-city").value;
+function showWeatherData(outputApi) {
+  console.log(outputApi);
+  let temp = Math.round(outputApi.data.main.temp);
+  degrees.innerHTML = temp;
+  let weatherCity = document.querySelector("#city");
+  weatherCity.innerHTML = outputApi.data.name;
+  let weatherDesc = document.querySelector(".weatherdescription");
+  weatherDesc.innerHTML = outputApi.data.weather[0].description;
+  let windSpeed = document.querySelector("#windspeed");
+  windSpeed.innerHTML = Math.round(outputApi.data.wind.speed);
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = Math.round(outputApi.data.main.humidity);
 
-  function showTemperature(apiUrl) {
-    let temp = Math.round(apiUrl.data.main.temp);
-    degrees.innerHTML = temp;
+  let weatherIcon = document.querySelector(".icon");
+  let loadIcon = outputApi.data.weather[0].icon;
+  weatherIcon.src = `http://openweathermap.org/img/wn/${loadIcon}@2x.png`;
+
+  let todaysDate = new Date();
+  let weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let months = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+
+  let todaysDay = weekDays[todaysDate.getDay()];
+  let todaysDayDate = todaysDate.getDate();
+
+  let month = months[todaysDate.getMonth()];
+  if (month < 10) {
+    month = `0${month}`;
   }
+  let year = todaysDate.getFullYear();
+  let hour = todaysDate.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minute = todaysDate.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+
+  let displayNow = document.querySelector("#today");
+  displayNow.innerHTML = `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
 }
-let searchForm = document.querySelector("#searchform-city");
-searchForm.addEventListener("submit", searchSubmit);
 
 // function showTemperatureMyPos(apiUrl2) {
 //   let temp = Math.round(apiUrl2.data.main.temp);
