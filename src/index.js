@@ -1,6 +1,5 @@
 function searchSubmit(event) {
   event.preventDefault();
-  console.log(document.querySelector("#input-city").value);
   let cityInput = document.querySelector("#input-city");
   searchCity(cityInput.value);
 }
@@ -17,7 +16,6 @@ function searchCity(city) {
 window.onload = searchCity("Amsterdam");
 
 function showWeatherData(outputApi) {
-  console.log(outputApi);
   let temp = Math.round(outputApi.data.main.temp);
   degrees.innerHTML = temp;
   let weatherCity = document.querySelector("#city");
@@ -36,11 +34,21 @@ function showWeatherData(outputApi) {
   let displayNow = document.querySelector("#today");
   displayNow.innerHTML = timestamp(outputApi.data.dt * 1000);
   celciusTemperature = Math.round(outputApi.data.main.temp);
+
+  getForecast(outputApi.data.coord);
+}
+
+function getForecast(coordinates) {
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiKey = "f6766af7b26f55aa24d6be88466216f4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function timestamp(timestamp) {
   let todaysDate = new Date(timestamp);
-  console.log(todaysDate);
   let weekDays = [
     "Sunday",
     "Monday",
@@ -112,7 +120,9 @@ function converttempunittoC(clickevent) {
 let displaytempC = document.querySelector("#convertunittoC");
 displaytempC.addEventListener("click", converttempunittoC);
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -132,8 +142,6 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
 }
-
-displayForecast();
 // function showTemperatureMyPos(apiUrl2) {
 //   let temp = Math.round(apiUrl2.data.main.temp);
 //   let city2 = apiUrl2.data.name;
