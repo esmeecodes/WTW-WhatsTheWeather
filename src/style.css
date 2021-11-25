@@ -85,7 +85,7 @@ li.weatherdescription:first-letter {
   text-align: center;
   line-height: 1.25;
 }
-col-2.day {
+col-2 .day {
   font-weight: bold;
 }
 
