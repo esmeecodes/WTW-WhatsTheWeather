@@ -94,32 +94,6 @@ function timestamp(timestamp) {
   return `Last updated on ${todaysDay}, ${todaysDayDate}.${month}.${year} - ${hour}:${minute}`;
 }
 
-function converttempunittoF(clickevent) {
-  clickevent.preventDefault();
-  let fahrenheitTemp = Math.round(celciusTemperature * 1.8 + 32);
-  let weatherCity = document.querySelector("#degrees");
-  weatherCity.innerHTML = fahrenheitTemp;
-  let displaytempF = document.querySelector("#convertunittoF");
-  displaytempF.style.color = "coral";
-  displaytempC.style.color = "black";
-}
-let displaytempF = document.querySelector("#convertunittoF");
-displaytempF.addEventListener("click", converttempunittoF);
-
-let celciusTemperature = null;
-
-function converttempunittoC(clickevent) {
-  clickevent.preventDefault();
-  let weatherCity = document.querySelector("#degrees");
-  weatherCity.innerHTML = celciusTemperature;
-
-  let displaytempC = document.querySelector("#convertunittoC");
-  displaytempF.style.color = "black";
-  displaytempC.style.color = "coral";
-}
-let displaytempC = document.querySelector("#convertunittoC");
-displaytempC.addEventListener("click", converttempunittoC);
-
 function formatDay(timestamp) {
   let date = new date(timestamp * 1000);
   let day = date.getDay();
