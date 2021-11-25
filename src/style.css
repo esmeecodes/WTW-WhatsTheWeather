@@ -41,10 +41,6 @@ h3 {
   max-height: 280px;
 }
 
-#map {
-  height: 280px;
-}
-
 .form-control {
   border-top: 1px solid #31353e;
   border-bottom: 1px solid #31353e;
@@ -85,7 +81,7 @@ li.weatherdescription:first-letter {
   text-align: center;
   line-height: 1.25;
 }
-col-2 .day {
+.col-2 .day {
   font-weight: bold;
 }
 
@@ -154,4 +150,14 @@ button#button-curloc {
 .footer {
   font-size: 10px;
   text-align: center;
+}
+
+#map {
+  height: 280px;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

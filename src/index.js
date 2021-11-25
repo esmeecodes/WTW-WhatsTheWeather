@@ -36,6 +36,7 @@ function showWeatherData(outputApi) {
   celciusTemperature = Math.round(outputApi.data.main.temp);
 
   getForecast(outputApi.data.coord);
+  initMap(outputApi.data.coord);
 }
 
 function getForecast(coordinates) {
@@ -138,6 +139,16 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
+}
+
+function initMap(coords) {
+  let lat = coords.lat;
+  let lng = coords.lon;
+
+  let map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
 }
 
 // function showTemperatureMyPos(apiUrl2) {
