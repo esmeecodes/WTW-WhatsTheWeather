@@ -120,28 +120,52 @@ function converttempunittoC(clickevent) {
 let displaytempC = document.querySelector("#convertunittoC");
 displaytempC.addEventListener("click", converttempunittoC);
 
+function formatDay(timestamp) {
+  let date = new date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecastData = response.data.daily;
+  console.log(forecastData);
 
   let forecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="icon" id="iconsmaller1">
-            <span class="day">${day}</span>
+  forecastData.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+            <img src="http://openweathermap.org/img/wn/${
+              day.weather[0].icon
+            }@2x.png" alt="icon" id="iconsmaller1"></br>
+            <span class="day">${day.dt}</span>
             <br />
-            <span class="forecast-date"></span>10-10-21
+            <span class="forecast-date">${day.dt}</span>
             <br />
-            <span class="forecast-tempmin">17&deg</span> <span id="forecast-tempmax">17&deg</span>
+            <span class="forecast-tempmin">${Math.round(
+              day.temp.min
+            )}</span> <span id="forecast-tempmax">${Math.round(
+          day.temp.max
+        )}&deg</span>
       </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
 }
+
 // function showTemperatureMyPos(apiUrl2) {
 //   let temp = Math.round(apiUrl2.data.main.temp);
 //   let city2 = apiUrl2.data.name;
