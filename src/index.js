@@ -112,6 +112,28 @@ function converttempunittoC(clickevent) {
 let displaytempC = document.querySelector("#convertunittoC");
 displaytempC.addEventListener("click", converttempunittoC);
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="icon" id="iconsmaller1">
+            <span class="day">${day}</span>
+            <br />
+            <span class="forecast-date"></span>10-10-21
+            <br />
+            <span class="forecast-tempmin">17&deg</span> <span id="forecast-tempmax">17&deg</span>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
+displayForecast();
 // function showTemperatureMyPos(apiUrl2) {
 //   let temp = Math.round(apiUrl2.data.main.temp);
 //   let city2 = apiUrl2.data.name;
