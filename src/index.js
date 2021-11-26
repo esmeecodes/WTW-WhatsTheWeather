@@ -36,7 +36,7 @@ function showWeatherData(outputApi) {
   celciusTemperature = Math.round(outputApi.data.main.temp);
 
   getForecast(outputApi.data.coord);
-  initMap(outputApi.data.coord);
+  showMap(outputApi.data.coord);
 }
 
 function getForecast(coordinates) {
@@ -141,57 +141,22 @@ function displayForecast(response) {
   forecast.innerHTML = forecastHTML;
 }
 
-function initMap(coords) {
-  let lat = coords.lat;
-  let lng = coords.lon;
+function showMap(coords) {
+  // Create the script tag, set the appropriate attributes
+  var script = document.createElement("script");
+  script.src =
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHFVm1IuOr7B99fiDmBmoxwRRDvOSPuI&callback=initMap";
+  script.async = true;
 
-  let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+  // Attach your callback function to the `window` object
+  window.initMap = function () {
+    // JS API is loaded and available
+    new google.maps.Map(document.getElementById("map"), {
+      center: { lat: coords.lat, lng: coords.lon },
+      zoom: 10,
+    });
+  };
+
+  // Append the 'script' element to 'head'
+  document.head.appendChild(script);
 }
-
-// function showTemperatureMyPos(apiUrl2) {
-//   let temp = Math.round(apiUrl2.data.main.temp);
-//   let city2 = apiUrl2.data.name;
-//   degrees.innerHTML = temp;
-//   let weatherCity = document.querySelector("#city");
-//   weatherCity.innerHTML = city2;
-// }
-
-// function giveBackPosition(position) {
-//   let latitude = position.coords.latitude;
-//   let longitude = position.coords.longitude;
-//   let apiKey = "f6766af7b26f55aa24d6be88466216f4";
-//   let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-//   axios.get(apiUrl2).then(showTemperatureMyPos);
-// }
-
-// function getPosition() {
-//   navigator.geolocation.getCurrentPosition(giveBackPosition);
-// }
-
-// let PositionButton = document.querySelector("#button-curloc");
-// PositionButton.addEventListener("click", getPosition);
-
-// function converttempunittoF(event) {
-//   event.preventDefault();
-//   let weatherCity = document.querySelector("#degrees");
-//   weatherCity.innerHTML = 62;
-//   let displaytempF = document.querySelector("#convertunittoF");
-//   displaytempF.style.color = "coral";
-//   displaytempC.style.color = "black";
-// }
-// let displaytempF = document.querySelector("#convertunittoF");
-// displaytempF.addEventListener("click", converttempunittoF);
-
-// function converttempunittoC(event) {
-//   event.preventDefault();
-//   let weatherCityC = document.querySelector("#degrees");
-//   weatherCityC.innerHTML = 17;
-//   displaytempC.style.color = "coral";
-//   displaytempF.style.color = "black";
-// }
-// let displaytempC = document.querySelector("#convertunittoC");
-// displaytempC.addEventListener("click", converttempunittoC);
