@@ -16,6 +16,11 @@ h3 {
   color: #31353e;
 }
 
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .weatherapp {
   width: 400px;
 }
@@ -79,7 +84,7 @@ li.weatherdescription:first-letter {
 .col-2 {
   font-size: 12px;
   text-align: center;
-  line-height: 1.25;
+  line-height: 1.5;
 }
 .col-2 .day {
   font-weight: bold;
@@ -113,7 +118,7 @@ button#button-curloc {
 }
 
 .today {
-  font-size: 18px;
+  font-size: 10px;
   font-weight: normal;
 }
 
@@ -153,7 +158,8 @@ button#button-curloc {
 }
 
 #map {
-  height: 280px;
+  height: 300px;
+  width: 430px;
 }
 html,
 body {

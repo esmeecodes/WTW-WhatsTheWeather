@@ -96,7 +96,7 @@ function timestamp(timestamp) {
 }
 
 function formatDay(timestamp) {
-  let date = new date(timestamp * 1000);
+  let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = [
     "Sunday",
@@ -125,13 +125,11 @@ function displayForecast(response) {
             <img src="http://openweathermap.org/img/wn/${
               day.weather[0].icon
             }@2x.png" alt="icon" id="iconsmaller1"></br>
-            <span class="day">${day.dt}</span>
-            <br />
-            <span class="forecast-date">${day.dt}</span>
+            <span class="day">${formatDay(day.dt)}</span>
             <br />
             <span class="forecast-tempmin">${Math.round(
               day.temp.min
-            )}</span> <span id="forecast-tempmax">${Math.round(
+            )}</span>&deg  <span id="forecast-tempmax">${Math.round(
           day.temp.max
         )}&deg</span>
       </div>`;
